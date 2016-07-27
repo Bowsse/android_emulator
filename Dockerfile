@@ -41,9 +41,6 @@ RUN ant -f fetch.xml -Ddest=system
 
 WORKDIR /home/work
 
-#RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - 
-#RUN apt-get install -y nodejs
-
 RUN wget http://www.us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 RUN tar -xvzf apache-maven-3.3.9-bin.tar.gz
 RUN rm apache-maven-3.3.9-bin.tar.gz
@@ -60,9 +57,7 @@ RUN gem install --no-rdoc --no-ri bundler
 RUN gem update
 RUN gem cleanup
 
-#RUN useradd --system -s /sbin/nologin linuxbrew
 RUN useradd --system -m -s /bin/bash linuxbrew
-#runuser -l linuxbrew ''
 USER linuxbrew
 ENV PATH $PATH:~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin  
 RUN source /usr/local/rvm/scripts/rvm
@@ -90,11 +85,6 @@ RUN ./reset.sh --android --verbose
 
 RUN pip install robotframework
 RUN pip install robotframework-appiumlibrary
-# echo "deb http://httpredir.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
-# apt-get update
-# apt-get install -t wheezy-backports libqt5quick5
-#  screen -dm emulator -avd android -noaudio -no-window -gpu off -verbose -engine classic
 
 RUN chmod +x /start.sh
 CMD ["/start.sh"]
-
