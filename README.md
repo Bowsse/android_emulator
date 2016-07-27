@@ -5,6 +5,8 @@ The dockerfile and start script installs and starts android emulator and Appium 
 
 Appium was unable to control the emulator while running tests in the container.
 
+Setup used in Dockerfile has alot of dependencies that are not listed here.
+
 ## Install Android SDK
 ```shell
 cd /opt
