@@ -23,6 +23,7 @@ echo | android create avd --force -n android -t android-22 --abi armeabi-v7a
 adb start-server
 emulator -avd android -noaudio -no-window -gpu off -verbose -engine classic
 ```
+Running a x86 system emulator requires hardware acceleration and if used in a docker container the container must be ran with --priviliged label.
 
 ## Install Appium
 ```shell
@@ -39,7 +40,7 @@ pip install robotframework
 pip install robotframework-appiumlibrary
 ```
 
-Using Appium library in a Robot test suite
+Using Appium library in a Robot test suite:
 
 ```
 *** Settings ***
